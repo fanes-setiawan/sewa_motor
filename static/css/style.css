@@ -1,0 +1,115 @@
+body {
+  background-image: url('/static/images/motor_background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 200px;
+  height: 200px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #0023e77c;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  margin: 10px;
+}
+
+.menu a:hover {
+  background-color: #eeeeee;
+}
+
+.content {
+  margin-top: 30px;
+}
+
+.motor-list {
+  margin-top: 20px;
+}
+
+.motor-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.motor-item .image {
+  flex: 0 0 150px;
+  margin-right: 10px;
+}
+
+.motor-item .image img {
+  width: 100%;
+  height: auto;
+}
+
+.motor-item .details {
+  flex: 1;
+}
+
+.motor-item .details h3 {
+  margin: 0;
+}
+
+.motor-item .details p {
+  margin-top: 5px;
+}
+
+.motor-item .actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.motor-item .actions a {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #0023e77c;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.motor-item .actions a:hover {
+  background-color: #eeeeee;
+}

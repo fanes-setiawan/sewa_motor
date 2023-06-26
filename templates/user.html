@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo img {
+            height: 50px;
+        }
+
+        nav .profile img {
+            height: 30px;
+        }
+
+        .hero {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .hero .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #000;
+        }
+
+        .motor-list {
+            padding: 40px 0;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .motor-list h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .motor-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(300px, auto);
+            grid-gap: 20px;
+        }
+
+        .motor-item {
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: start;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .motor-item .image {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .motor-item img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .motor-item h3 {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .motor-item p {
+            margin-top: 5px;
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        .motor-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Logo">
+            </div>
+            <div class="profile">
+                <a href="/profile">
+                    <img src="/static/images/profil.png" alt="Profile">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="background-image">
+            <img src="/static/images/motor_background.png" alt="Background">
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to User Page</h1>
+            <p>Explore our collection of rental motorcycles</p>
+        </div>
+    </section>
+
+    <section class="motor-list">
+        <div class="container">
+            <h2>Motorcycle Rental List</h2>
+            <div class="motor-grid">
+                {% for motor in motor_rentals %}
+                    <div class="motor-item">
+                        <a href="/detail_motor/{{ motor[0] }}">
+                            <div class="image">
+                                <img src="/static/images/{{ motor[1] }}" alt="Motor Image">
+                            </div>
+                            <h3>{{ motor[2] }}</h3>
+                            <p>Tahun: {{ motor[3] }}</p>
+                            <p>Warna: {{ motor[4] }}</p>
+                            <p>Jumlah: {{ motor[5] }}</p>
+                            <p>Harga: {{ motor[7] }} / hari</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>   
+
+    <footer>
+        <p>&copy; 2023 Rental Motor Company. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

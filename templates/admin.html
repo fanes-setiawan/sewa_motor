@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            background-image: url('/static/images/motor_background.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            justify-content: center;
+            align-items: center;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            color: #000;
+        }
+
+        .logo img {
+            max-width: 40%;
+            max-height: 40%;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu a {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #0023e77c;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            margin: 8px;
+        }
+
+        .menu a:hover {
+            background-color: #eeeeee;
+        }
+
+        .content {
+            margin-top: 0px;
+        }
+
+        .motor-list {
+            margin-top: 20px;
+            overflow: auto; /* Tambahkan properti ini */
+            max-height: 400px; /* Sesuaikan tinggi maksimal yang diinginkan */
+        }
+
+        .motor-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .motor-item .image {
+            flex: 0 0 150px;
+            margin-right: 10px;
+        }
+
+        .motor-item .image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .motor-item .details {
+            flex: 1;
+        }
+
+        .motor-item .details h3 {
+            margin: 0;
+        }
+
+        .motor-item .details p {
+            margin-top: 5px;
+        }
+
+        .motor-item .details p:last-child {
+            margin-bottom: 0;
+        }
+
+        .motor-item .actions {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .motor-item .actions a {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #0023e77c;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .motor-item .actions a:hover {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome, Admin</h1>
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Logo">
+            </div>
+        </div>
+        
+        <div class="menu">
+            <a href="/add_motor">Add</a>
+            <a href="/profile">Profile</a>
+        </div>
+
+        <div class="content">
+            <h2>Motor List</h2>
+            <div class="motor-list">
+                {% for motor in motor_rentals %}
+                <div class="motor-item">
+                    <div class="image">
+                        <img src="/static/images/{{ motor[1] }}" alt="Motor Image">
+                    </div>
+                    <div class="details">
+                        <h3>{{ motor[2] }}</h3>
+                        <p>Tahun: {{ motor[3] }}</p>
+                        <p>Warna: {{ motor[4] }}</p>
+                        <p>Jumlah: {{ motor[5] }}</p>
+                        <p>Deskripsi: {{ motor[6] }}</p>
+                        <p>Harga: {{ motor[7] }} / hari</p>
+                        <div class="actions">
+                            <a href="/edit_motor/{{ motor[0] }}">Edit</a>
+                            <a href="#" onclick="deleteMotor('{{ motor[0] }}')">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function deleteMotor(motorId) {
+            if (confirm("Apakah Anda yakin ingin menghapus motor ini?")) {
+                // Membuat elemen form baru
+                var form = document.createElement("form");
+                form.setAttribute("method", "post");
+                form.setAttribute("action", "/delete_motor/" + motorId);
+                form.style.display = "none";
+    
+                // Menambahkan form ke dalam body dokumen
+                document.body.appendChild(form);
+    
+                // Submit form
+                form.submit();
+            }
+        }
+    </script>
+    
+</body>
+</html>

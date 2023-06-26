@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rental Motor</title>
+    <style>
+        body {
+            background-image: url('/static/images/motor_background.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            justify-content: center;
+            align-items: center;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            max-width: 300px;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .description {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .options a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #0023e77c;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        .options a:hover {
+            background-color: #eeeeee;
+        }
+
+        .next-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .next-button a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #0023e77c;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .next-button a:hover {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to Rental Motor Online</h1>
+            <div class="logo">
+                <img src="static/images/logo.png" alt="Logo">
+            </div>
+        </div>
+
+        <div class="description">
+            <p>Rental Motor Online adalah platform penyewaan motor yang mudah dan praktis. Dengan layanan kami, Anda dapat menyewa motor dengan cepat dan efisien, tanpa repot pergi ke tempat penyewaan. Pilih peran Anda di bawah ini dan mulailah petualangan Anda!</p>
+        </div>
+
+        <div class="next-button">
+            <a href="/register">Next</a>
+        </div>
+    </div>
+</body>
+</html>

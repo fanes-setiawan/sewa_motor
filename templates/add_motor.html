@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Motor</title>
+    <style>
+        body {
+            background-image: url('/static/images/motor_background.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            justify-content: center;
+            align-items: center;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            max-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .logo img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        .form-actions {
+            text-align: center;
+        }
+
+        .form-actions button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #0023e77c;
+            color: #000000;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-actions button:hover {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Add Motor</h1>
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Logo">
+            </div>
+        </div>
+
+        <form action="/add_motor" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jenis_motor">Jenis Motor</label>
+                <input type="text" id="jenis_motor" name="jenis_motor" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tahun_motor">Tahun Motor</label>
+                <input type="number" id="tahun_motor" name="tahun_motor" required>
+            </div>
+
+            <div class="form-group">
+                <label for="warna_motor">Warna Motor</label>
+                <input type="text" id="warna_motor" name="warna_motor" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pemilik">Pemilik</label>
+                <input type="text" id="pemilik" name="pemilik" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jumlah_motor">Jumlah Motor</label>
+                <input type="number" id="jumlah_motor" name="jumlah_motor" required>
+            </div>
+
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi</label>
+                <textarea id="deskripsi" name="deskripsi" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="harga">Harga</label>
+                <input type="number" id="harga" name="harga" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Add Motor</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motor List</title>
+    <style>
+        .motor {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Motor List</h1>
+    
+    {% for motor_rental in motor_rentals %}
+    <div class="motor">
+        <h3>{{ motor_rental[2] }}</h3>
+        <p>Tahun: {{ motor_rental[3] }}</p>
+        <p>Warna: {{ motor_rental[4] }}</p>
+        <p>Tersedia: {% if motor_rental[5] %}Yes{% else %}No{% endif %}</p>
+        <p>Deskripsi: {{ motor_rental[6] }}</p>
+        
+        <a href="https://wa.me/{{ motor_rental[7] }}">Contact Owner</a>
+    </div>
+    {% endfor %}
+    
+    <a href="/profile">Back to Profile</a>
+</body>
+</html>
